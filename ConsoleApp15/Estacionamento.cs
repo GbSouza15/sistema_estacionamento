@@ -23,17 +23,15 @@ namespace ConsoleApp15
         {
             Console.WriteLine("Digite a placa do veículo para ser removido:");
             string removerPlaca = Console.ReadLine().ToUpper();
+            int index = veiculos.IndexOf(removerPlaca);
 
-            for (int i = 0; i < veiculos.Count; i++)
+            if (index >= 0)
             {
-                if (veiculos[i] == removerPlaca)
-                {
-                    veiculos.Remove(removerPlaca);
-                    Console.WriteLine(removerPlaca + " foi removido");
-                } else
-                {
-                    Console.WriteLine("Veículo não encontrado");
-                }
+                veiculos.RemoveAt(index);
+                Console.WriteLine(removerPlaca + " Foi removido!");
+            } else
+            {
+                Console.WriteLine("Veículo não encontrado.");
             }
 
         }
